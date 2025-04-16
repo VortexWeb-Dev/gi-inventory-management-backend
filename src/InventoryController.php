@@ -85,8 +85,8 @@ class InventoryController
             "size" => $item['ufCrm48Size'] ?? 0,
             "agentName" => $item['ufCrm48AgentName'] ?? '',
             "ownerName" => $item['ufCrm48OwnerName'] ?? '',
-            "ownerUrl" => $item['ufCrm48OwnerUrl'] ?? '',
-            "images" => array_map(fn($image) => ["url" => $image['urlMachine'] ?? ''], $item['ufCrm48PropertyImages'] ?? [])
+            "ownerUrl" => $item['ufCrm48OwnerUrl'] ?? '#',
+            "images" => array_map(fn($image) => ["url" => $image], $item['ufCrm48PropertyImages'] ?? [])
         ];
     }
 
