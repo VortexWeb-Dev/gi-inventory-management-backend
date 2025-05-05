@@ -82,7 +82,7 @@ class InventoryController
                 41324 => "Pocket",
                 default => "Unknown",
             },
-            "projectStatus" => match ($item['ufCrm37ProjectStatus'] ?? null) {
+            "projectStatus" => match ($item['ufCrm48ProjectStatus'] ?? null) {
                 "off_plan" => "Off Plan",
                 "off_plan_primary" => "Off-Plan Primary",
                 "off_plan_secondary" => "Off-Plan Secondary",
