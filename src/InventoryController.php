@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . "/../crest/crest.php";
 
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 define('INVENTORY_ENTITY_TYPE_ID', 1130);
 
 class InventoryController
@@ -78,6 +82,15 @@ class InventoryController
                 41324 => "Pocket",
                 default => "Unknown",
             },
+            "projectStatus" => match ($item['ufCrm37ProjectStatus'] ?? null) {
+                "off_plan" => "Off Plan",
+                "off_plan_primary" => "Off-Plan Primary",
+                "off_plan_secondary" => "Off-Plan Secondary",
+                "ready_primary" => "Ready Primary",
+                "ready_secondary" => "Ready Secondary",
+                "completed" => "Completed",
+                default => "",
+            },
             "ownerPhone" => $item['ufCrm48OwnerPhone'] ?? '',
             "unitType" => $item['ufCrm48UnitType'] ?? '',
             "locationPf" => $item['ufCrm48LocationPf'] ?? '',
@@ -100,6 +113,7 @@ class InventoryController
             'ufCrm48Bathrooms',
             'ufCrm48Price',
             'ufCrm48Status',
+            'ufCrm48ProjectStatus',
             'ufCrm48OwnerPhone',
             'ufCrm48UnitType',
             'ufCrm48LocationPf',
